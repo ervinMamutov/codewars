@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('node:assert/strict');
-const exp = require('node:constants');
 
 const COLOR_ERROR = '\x1b[0;31m';
 const COLOR_INFO = '\x1b[0;37m';
@@ -33,7 +32,7 @@ module.exports = (cases) => (fn) => {
     try {
       res = fn(...args);
       result = JSON.stringify(res);
-    } catch (error) {
+    } catch (err) {
       logger.error(`${msg} ${result}, exception: ${err.stack}`);
       continue;
     }
